@@ -70,11 +70,11 @@ services:
     networks:
       - confluent
     healthcheck:
-      test: ["CMD", "bash", "-c", "echo 'ruok' | nc localhost 2181"]
+      test: ["CMD", "curl", "-f", "http://localhost:8081/"]
       interval: 10s
       timeout: 5s
       retries: 5
-      
+
 
 networks:
   confluent
