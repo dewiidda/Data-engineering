@@ -14,6 +14,15 @@ def get_data():
     res = res.json()
     res = res['results'][0]
 
+def format_data(res):
+    data = {}
+    location = res['location']
+    data['first_name'] = res['name']['first']
+    data['last_name'] = res['name']['last']
+    data['gender'] = res['gender']
+    data['address'] = f"{str(location['street']['number'])} {location['street']['name']} 
+                      f" {location['city']} {location['state']} {location['country']}
+
 def stream_data():
     import json
     
